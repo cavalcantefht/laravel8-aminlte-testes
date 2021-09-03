@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+
+class UserController extends Controller
+{
+    protected $messages = [
+        'name.required' => 'Esse campo é obrigatório.',
+        'email.required' => 'O campo E-mail é obrigatório.',
+        'password.required' => 'O campo Senha é obrigatório.',
+        'confirm_password.required' => 'O campo Confirme a senha é obrigatório.'
+    ];
+
+    protected  $roles = [
+        'name' => 'required|min:10',
+        'email' => 'required|min:10',
+        'password' => 'required',
+        'confirm_password' => 'required'
+    ];
+
+    public function index()
+    {
+        return view('admin.forms.c_user');
+    }
+
+    public function create()
+    {
+        return view('admin.forms.c_user');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate($this->roles, $this->messages);
+
+        if ($request->password != $request->confirm_password) {
+            return Redirect::back()->withErrors(['msg' => 'As senhas não podem ser diferentes'])->withInput();
+        }
+
+        if (!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
+            return Redirect::back()->withErrors(['email' => 'E-mail inválido'])->withInput();
+        }
+
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+
+        return view('admin.forms.c_user')->with(['msg' => 'Usuário cadastrado com sucesso.']);
+    }
+
+    public function show(Request $request)
+    {
+    }
+
+    public function edit(Request $request)
+    {
+    }
+
+    public function update(Request $request)
+    {
+    }
+
+    public function destroy(Request $request)
+    {
+    }
+}
