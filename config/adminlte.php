@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/home',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -239,7 +239,7 @@ return [
         // Sidebar items:
         [
             'text'        => 'Dashboard',
-            'url'         => 'home',
+            'url'         => 'admin/home',
             'icon'        => 'far fa-fw fa-file',
         ],
         ['header' => 'account_settings'],
