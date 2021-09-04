@@ -34,8 +34,7 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->created_at}}</td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary">ED</button>
-                                        <button class="btn btn-sm btn-danger">EX</button>
+                                        <a href="users/{{$user->id}}/edit" class="btn btn-sm btn-primary" title="Editar">ED</a>
                                     </td>
                                 </tr>
                             @endforeach

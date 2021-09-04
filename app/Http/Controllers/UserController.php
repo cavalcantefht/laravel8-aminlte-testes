@@ -31,7 +31,7 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('admin.forms.c_user');
+        return view('admin.users.create');
     }
 
     public function store(Request $request)
@@ -69,6 +69,7 @@ class UserController extends Controller
 
     public function edit(Request $request)
     {
+        return view('admin.users.create');
     }
 
     public function update(Request $request)

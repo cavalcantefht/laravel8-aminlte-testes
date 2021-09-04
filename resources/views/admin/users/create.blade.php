@@ -14,7 +14,10 @@
                     @if ($errors->any())
                         <div class="alert alert-danger">{{ $errors->first() }}</div>
                     @endif
-                    <form action="/forms/create-users" method="POST">
+                    @if( $msg && !empty($msg) && !$errors->any())
+                        <div class="alert alert-success">{{ $msg }}</div>
+                    @endif
+                    <form action="users" method="POST">
                         @csrf
                         <div class="form-group">
                             <input name="name" type="text"
