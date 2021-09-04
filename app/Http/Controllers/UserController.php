@@ -25,7 +25,8 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('admin.forms.c_user');
+        $users = User::all();
+        return view('admin.users.index')->with(['users' => $users]);
     }
 
     public function create()

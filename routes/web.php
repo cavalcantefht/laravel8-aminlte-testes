@@ -18,6 +18,6 @@ Route::get('/home', function () {
     return view('home');
 })->name('home')->middleware('auth');
 
-Route::prefix('forms')->group(function () {
-    Route::resource('create-users', UserController::class);
+Route::prefix('admin')->group(function () {
+    Route::resource('users', UserController::class);
 });

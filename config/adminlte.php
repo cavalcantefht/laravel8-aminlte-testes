@@ -244,8 +244,8 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'Cad. Usuarios',
-            'url'  => 'forms/create-users',
+            'text' => 'Usuarios',
+            'url'  => 'admin/users',
             'icon' => 'fas fa-fw fa-user',
         ],
     ],
