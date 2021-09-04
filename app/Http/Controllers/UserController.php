@@ -45,6 +45,12 @@ class UserController extends Controller
             return Redirect::back()->withErrors(['email' => 'E-mail inválido'])->withInput();
         }
 
+        $exists = User::where('email', $request->email)->get();
+
+        if (count($exists) > 0) {
+            return Redirect::back()->withErrors(['msg' => 'E-mail já cadastrado'])->withInput();
+        }
+
         $user = new User;
 
         $user->name = $request->name;
