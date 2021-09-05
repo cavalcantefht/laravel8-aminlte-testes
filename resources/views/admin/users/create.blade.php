@@ -14,10 +14,10 @@
                     @if ($errors->any())
                         <div class="alert alert-danger">{{ $errors->first() }}</div>
                     @endif
-                    @if( $msg && !empty($msg) && !$errors->any())
+                    @if( isset($msg) && !empty($msg) && !$errors->any())
                         <div class="alert alert-success">{{ $msg }}</div>
                     @endif
-                    <form action="users" method="POST">
+                    <form action="/admin/users" method="POST">
                         @csrf
                         <div class="form-group">
                             <input name="name" type="text"

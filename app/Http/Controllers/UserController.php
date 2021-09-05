@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
@@ -25,8 +26,13 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
-        return view('admin.users.index')->with(['users' => $users]);
+        try {
+            $users = User::paginate(10);
+            return view('admin.users.index')->with(['users' => $users]);
+        } catch (Exception $e) {
+            print_r($e);
+            return view('admin.user.index')->with(['errors' => $e]);
+        }
     }
 
     public function create()

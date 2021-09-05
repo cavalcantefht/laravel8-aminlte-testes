@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <table class="table table-sm table-striped">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -32,7 +32,7 @@
                                     <td>{{$user->id}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{date($user->created_at)}}</td>
+                                    <td>{{$user->created_at}}</td>
                                     <td>
                                         <a href="users/{{$user->id}}/edit" class="btn btn-sm btn-primary" title="Editar">ED</a>
                                     </td>
@@ -40,21 +40,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="card-footer clear-fix">
-                    <ul class="pagination pagination-sm m-0 float-right">
-                        <li class="page-item {{($users->currentPage() === 1) ? "disabled" : ""}}">
-                            <a class="page-link" href="{{$users->path() . "?page=" . $users->currentPage() - 1}}">«</a>
-                        </li>
-                            @for($i = 0; $i < $users->lastPage(); $i++)
-                            <li class="page-item {{ $users->currentPage() === ($i + 1) ? "active" : ""}}">
-                                <a class="page-link" href="{{$users->path() . "?page=" . $i + 1}}">{{$i + 1}}</a>
-                            </li>
-                            @endfor
-                        <li class="page-item {{($users->currentPage() === $users->lastPage()) ? "disabled" : ""}}">
-                            <a class="page-link" href="{{$users->path() . "?page=". $users->currentPage() + 1}}">»</a>
-                        </li>
-                      </ul>
                 </div>
             </div>
         </div>

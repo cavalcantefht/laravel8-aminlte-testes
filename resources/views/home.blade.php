@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col">
+        <div class="col-4">
             <div class="small-box bg-gradient-success">
                 <div class="inner">
                     <h3>{{ isset($count_users) ? $count_users : 0}}</h3>
