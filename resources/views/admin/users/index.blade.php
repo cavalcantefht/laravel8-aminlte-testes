@@ -10,6 +10,9 @@
     <div class="row">
         <div class="col-md-12 col-xl-12">
             <div class="card">
+                <div class="card-header">
+                    <a href="/admin/users/create" class="btn btn-sm btn-primary float-right">+ Usuário</a>
+                </div>
                 <div class="card-body">
                     <table class="table table-sm table-striped">
                         <thead>

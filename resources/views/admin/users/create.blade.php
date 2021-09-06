@@ -10,11 +10,14 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <a href="/admin/users">Voltar</a>
+                </div>
                 <div class="card-body">
                     @if ($errors->any())
                         <div class="alert alert-danger">{{ $errors->first() }}</div>
                     @endif
-                    @if( isset($msg) && !empty($msg) && !$errors->any())
+                    @if (isset($msg) && !empty($msg) && !$errors->any())
                         <div class="alert alert-success">{{ $msg }}</div>
                     @endif
                     <form action="/admin/users" method="POST">
