@@ -66,11 +66,13 @@ class UserController extends Controller
 
         $user->save();
 
-        return view('admin.forms.c_user')->with(['msg' => 'Usuário cadastrado com sucesso.']);
+        return view('admin.users.create')->with(['msg' => 'Usuário cadastrado com sucesso.']);
     }
 
-    public function show(Request $request)
+    public function show($id)
     {
+        $user = User::find($id);
+        return view('admin.users.show')->with(["user" => $user]);
     }
 
     public function edit(Request $request)
