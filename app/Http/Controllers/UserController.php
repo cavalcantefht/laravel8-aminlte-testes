@@ -66,22 +66,49 @@ class UserController extends Controller
 
         $user->save();
 
-        return view('admin.users.create')->with(['msg' => 'Usuário cadastrado com sucesso.']);
+        return view('admin.users.create')
+            ->with(['msg' => 'Usuário cadastrado com sucesso.']);
     }
 
     public function show($id)
     {
         $user = User::find($id);
-        return view('admin.users.show')->with(["user" => $user]);
+        return view('admin.users.show', ['user' => $user]);
     }
 
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
-        return view('admin.users.create');
+        $user = User::find($id);
+        return view('admin.users.create', ['user' => $user]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        $input = $request->all();
+        $user = User::find($id);
+
+        if (isset($input["name"])) {
+            $user->name = $input["name"];
+        }
+
+        if (isset($input["email"])) {
+            $user->email = $input["email"];
+        }
+
+        if (isset($input["password"]) || isset($input["confirm_password"])) {
+            if ($input["password"] !== $input["confirm_password"]) {
+                return back()->withErrors([
+                    'password' => 'As senhas não podem ser diferentes.',
+                    'confirm_password' => 'As senhas não podem ser diferentes.'
+                ])->withInput();
+            } else {
+                $user->password = Hash::make($input["password"]);
+            }
+        }
+
+        $user->save();
+
+        return redirect()->back()->with(['msg' => 'Usuário alterado com sucesso.'])->withInput();
     }
 
     public function destroy(Request $request)
