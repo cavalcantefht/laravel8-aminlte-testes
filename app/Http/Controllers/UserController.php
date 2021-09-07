@@ -108,7 +108,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->back()->with(['msg' => 'Usuário alterado com sucesso.'])->withInput();
+        return view('admin.users.create')->with(['msg' => 'Usuário alterado com sucesso.', 'user' => $user]);
     }
 
     public function destroy(Request $request)
