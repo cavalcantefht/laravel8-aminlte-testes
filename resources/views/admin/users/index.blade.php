@@ -41,7 +41,7 @@
                                         </a>
                                     </td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ date($user->created_at) }}</td>
+                                    <td>{{ date('d/m/Y H:i:s', strtotime($user->created_at)) }}</td>
                                     <td>
                                         <a href="users/{{ $user->id }}/edit" class="btn btn-sm btn-primary"
                                             title="Editar"><i class="fa fa-fw fa-edit"></i></a>
