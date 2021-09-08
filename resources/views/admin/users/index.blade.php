@@ -43,8 +43,8 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ date('d/m/Y H:i:s', strtotime($user->created_at)) }}</td>
                                     <td>
-                                        <a href="users/{{ $user->id }}/edit" class="btn btn-sm btn-primary"
-                                            title="Editar"><i class="fa fa-fw fa-edit"></i></a>
+                                        <a href="users/{{ $user->id }}/edit" class="btn btn-sm btn-default"
+                                            title="Editar"><i class="fa fa-sm	fa-edit"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
