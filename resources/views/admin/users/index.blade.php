@@ -44,7 +44,7 @@
                                     <td>{{ date($user->created_at) }}</td>
                                     <td>
                                         <a href="users/{{ $user->id }}/edit" class="btn btn-sm btn-primary"
-                                            title="Editar">ED</a>
+                                            title="Editar"><i class="fa fa-fw fa-edit"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
