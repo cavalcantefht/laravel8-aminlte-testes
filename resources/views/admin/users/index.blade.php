@@ -11,7 +11,7 @@
         <div class="col-md-12 col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="/admin/users/create" class="btn btn-sm btn-primary float-right">+ Usuário</a>
+                    <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary float-right">+ Usuário</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-sm table-striped">
@@ -41,7 +41,7 @@
                                         </a>
                                     </td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ date('d/m/Y H:i:s', strtotime($user->created_at)) }}</td>
+                                    <td>{{ $user->created_at }}</td>
                                     <td>
                                         <a href="users/{{ $user->id }}/edit" class="btn btn-sm btn-default"
                                             title="Editar"><i class="fa fa-sm	fa-edit"></i></a>

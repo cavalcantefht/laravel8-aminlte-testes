@@ -11,7 +11,7 @@
         <div class="col-md-12 col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="/admin/users">Voltar</a>
+                    <a href="{{ url()->previous() }}">Voltar</a>
                 </div>
                 <div class="card-body">
                     <table>
@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <td><b>Dt. Criação:</b></td>
-                            <td>&nbsp;{{ $user->created_at }}</td>
+                            <td>&nbsp;{{ date('d/m/Y', strtotime($user->created_at)) }} / {{ $user->created_at }}</td>
                         </tr>
                     </table>
                 </div>
